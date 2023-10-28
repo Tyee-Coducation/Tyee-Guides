@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navbar from "@components/Navbar";
 import LoginButton from "@components/LoginButton";
+import Footer from "@components/Footer";
 
 export default function Home() {
   return (
@@ -63,6 +64,7 @@ export default function Home() {
           <LoginButton className="mt-6 loginButton"/>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
