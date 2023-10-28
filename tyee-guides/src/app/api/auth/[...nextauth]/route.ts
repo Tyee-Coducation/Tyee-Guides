@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { connectToDataBase } from "@lib/db";
-import QuizGeniusUser from "@models/user";
+import TyeeGuidesUser from "@models/user";
 
 export const authOptions = {
   providers: [
@@ -14,7 +14,7 @@ export const authOptions = {
     async signIn(user: any) {
       await connectToDataBase();
       try {
-        const findUser = await QuizGeniusUser.findOne({
+        const findUser = await TyeeGuidesUser.findOne({
           email: user.user.email,
         });
         if (findUser) {
@@ -22,7 +22,7 @@ export const authOptions = {
           return true;
         } else if (findUser === null) {
           console.log("Creating new user", user.user.email);
-          const newUser = new QuizGeniusUser({
+          const newUser = new TyeeGuidesUser({
             email: user.user.email,
             username: user.user.name,
           });
