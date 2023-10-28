@@ -65,7 +65,7 @@
 
 .hero-content {
   background: white;
-  padding: clamp(1rem, 5vh, 5rem);
+  padding: clamp(1rem, 5vw, 5rem);
   border-radius: 1rem;
   max-width: 1000px;
 }
@@ -109,6 +109,6 @@
 
 main {
   margin: clamp(2rem, 5vh, 5rem) clamp(2rem, 10vw, 8rem);
-  padding: clamp(1rem, 5vh, 5rem);
+  padding: clamp(1rem, 5vw, 5rem);
   max-width: 1000px;
 }
