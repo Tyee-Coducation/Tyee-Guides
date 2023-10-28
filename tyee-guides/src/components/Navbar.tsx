@@ -16,16 +16,51 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-white shadow-lg p-4 flex items-center nav">
-        <Image src={logo} alt="The Tyee" width={50} height={50} />
-        <h1 className="ml-2 text-lg">Tyee Guides</h1>
-        <Link href="/about" className="navItem desktop">
-          About
+        {showMenu && (
+          <div className="dropdown">
+            <Link href="/about" className="dropdown-item">
+              About
+            </Link>
+            <Link href="/classesInfo" className="dropdown-item">
+              Classes Info
+            </Link>
+            <Link href="/calendar" className="dropdown-item">
+              Calendar
+            </Link>
+            <Link href="/faq" className="dropdown-item">
+              Tyee FAQ
+            </Link>
+
+            {!session ? (
+              <>
+                <button onClick={() => signIn()} className="dropdown-item">
+                  Login
+                </button>
+                <button onClick={() => signIn()} className="dropdown-item">
+                  Signup
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={() => signOut()} className="dropdown-item">
+                  Logout
+                </button>
+              </>
+            )}
+          </div>
+        )}
+        <Link href="/about" className="flex items-center">
+          <Image src={logo} alt="The Tyee" width={50} height={50} />
+          <h1 className="ml-2 text-lg">Tyee Guides</h1>
         </Link>
         <Link href="/classesInfo" className="navItem desktop">
           Classes Info
         </Link>
         <Link href="/calendar" className="navItem desktop">
           Calendar
+        </Link>
+        <Link href="/faq" className="navItem desktop">
+          Tyee FAQ
         </Link>
         {!session ? (
           <>

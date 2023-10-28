@@ -87,9 +87,9 @@
 }
 
 .menu-line {
-  margin-top: 3px;
-  width: 30px;
-  height: 3px;
+  margin-top: 6px;
+  width: 40px;
+  height: 4px;
   background: black;
   border-radius: 5px;
 }
@@ -98,7 +98,29 @@
   display: none;
 }
 
-@media (max-width: 500px) {
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  min-width: 30%;;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--secondary);
+  color: var(--text);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background: var(--secondary);
+}
+
+@media (max-width: 680px) {
   .desktop {
     display: none;
   }
@@ -111,4 +133,24 @@ main {
   margin: clamp(2rem, 5vh, 5rem) clamp(2rem, 10vw, 8rem);
   padding: clamp(1rem, 5vw, 5rem);
   max-width: 1000px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 5rem);
+  margin-top: clamp(1rem, 2vh, 3rem);
+  padding: clamp(1rem, 2vw, 3rem);
+}
+
+.col {
+  flex: 1 1 300px;
+  padding: clamp(1rem, 2vw, 3rem);
+  border-radius: 1rem;
+  border: 2px solid var(--secondary);
+}
+
+.nav {
+  position: relative;
 }
