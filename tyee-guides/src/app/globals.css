@@ -110,7 +110,7 @@
   position: absolute;
   top: 100%;
   right: 1rem;
-  min-width: 30%;;
+  min-width: 30%;
   background: var(--background);
   display: flex;
   flex-direction: column;
@@ -156,7 +156,7 @@ main {
   flex: 1 1 250px;
   padding: clamp(1rem, 2vw, 3rem);
   border-radius: 1rem;
-  box-shadow: 0 0 5px 3px var(--secondary)
+  box-shadow: 0 0 5px 3px var(--secondary);
 }
 
 .nav {
@@ -185,3 +185,7 @@ main {
   text-align: center;
   box-shadow: 0 -3px 10px 5px var(--secondary);
 }
+
+
+
+

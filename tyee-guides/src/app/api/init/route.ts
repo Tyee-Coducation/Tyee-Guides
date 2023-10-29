@@ -1,27 +1,46 @@
 import { connectToDataBase } from "@lib/db";
 import QuizGeniusWeek from "@models/week";
 
+const months = {
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
+};
+
 function generateWeeks(startDate: Date, endDate: Date) {
   const weeks: object = {};
   const current = new Date(startDate);
+  current.setDate(startDate.getDate() - startDate.getDay() + 1); // Move to the Monday of the selected week
 
   while (current <= endDate) {
     const weekStart = new Date(current);
-    weekStart.setDate(weekStart.getDate() - weekStart.getDay()); // Move to the previous Monday
 
     const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate() + 6); // Move to the following Sunday
+    weekEnd.setDate(weekStart.getDate() + 6); // Move to the following Sunday
 
-    const weekLabel = `${weekStart.toISOString().split("T")[0]} - ${
-      weekEnd.toISOString().split("T")[0]
-    }`;
+    const weekLabel = `${
+      months[weekStart.getMonth() + 1]
+    } ${weekStart.getDate()}, ${weekStart.getFullYear()} to ${
+      months[weekEnd.getMonth() + 1]
+    } ${weekEnd.getDate()}, ${weekEnd.getFullYear()}`;
 
     weeks[weekLabel] = {};
 
     for (let i = 0; i < 7; i++) {
       const day = new Date(weekStart);
       day.setDate(weekStart.getDate() + i);
-      const dayLabel = day.toISOString().split("T")[0];
+      const dayLabel = `${
+        months[day.getMonth() + 1]
+      } ${day.getDate()}, ${day.getFullYear()}`;
       weeks[weekLabel][dayLabel] = {
         day: day.getDate(),
         month: day.getMonth() + 1,

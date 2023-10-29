@@ -6,17 +6,40 @@ import { useState } from "react";
 import { getSession, signIn, signOut, useSession } from "next-auth/react";
 import logo from "@public/logo.png";
 
+const months = {
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
+};
+
 function getCurrentWeekLabel() {
   const today = new Date();
   const weekStart = new Date(today);
-  weekStart.setDate(weekStart.getDate() - weekStart.getDay()); // Move to the previous Monday
+
+  if (weekStart.getDay() === 0) {
+    // Check if it's a Sunday
+    weekStart.setDate(today.getDate() - 6); // Go back to the previous Monday
+  } else {
+    weekStart.setDate(today.getDate() - today.getDay() + 1); // Move to the current Monday
+  }
 
   const weekEnd = new Date(weekStart);
-  weekEnd.setDate(weekEnd.getDate() + 6); // Move to the following Sunday
+  weekEnd.setDate(weekStart.getDate() + 6); // Move to the following Sunday
 
-  const weekLabel = `${weekStart.toISOString().split("T")[0]} - ${
-    weekEnd.toISOString().split("T")[0]
-  }`;
+  const weekLabel = `${
+    months[weekStart.getMonth() + 1]
+  } ${weekStart.getDate()}, ${weekStart.getFullYear()} to ${
+    months[weekEnd.getMonth() + 1]
+  } ${weekEnd.getDate()}, ${weekEnd.getFullYear()}`;
 
   return weekLabel;
 }
