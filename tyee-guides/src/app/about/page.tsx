@@ -45,7 +45,7 @@ export default function About() {
             everyone.
           </p>
         </div>
-        <div className="basis-80 mt-12 grow p-6 shadow-lg rounded-md" >
+        <div className="basis-80 mt-12 grow p-6 shadow-lg rounded-md">
           <h1 className="text-3xl">Making Life Easier</h1>
           <p className="mt-6 text-lg ">
             There is no reason students to struggles to find information about

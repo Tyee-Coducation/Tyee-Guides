@@ -61,7 +61,7 @@ export default function Home() {
             better place. Join the community and make Tyee Guides better for
             everyone.
           </p>
-          <LoginButton className="mt-6 loginButton"/>
+          <LoginButton className="mt-6 loginButton" />
         </section>
       </main>
       <Footer />

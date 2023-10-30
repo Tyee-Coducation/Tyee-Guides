@@ -1,8 +1,8 @@
 "use client";
-import { useState } from 'react';
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
-import Swal from 'sweetalert2';
+import { useState } from "react";
+import Navbar from "@components/Navbar";
+import Footer from "@components/Footer";
+import Swal from "sweetalert2";
 
 type User = {
   username: string;
@@ -11,17 +11,17 @@ type User = {
 
 export default function About() {
   "use client";
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const handleBanClick = (username: string) => {
     setSelectedUser(username);
     Swal.fire({
       title: `Ban ${username}`,
-      input: 'text',
+      input: "text",
       inputPlaceholder: `Enter reason for banning ${username}...`,
       showCancelButton: true,
-      confirmButtonText: 'Ban',
+      confirmButtonText: "Ban",
       showLoaderOnConfirm: true,
       preConfirm: (reason) => {
         // Perform ban action using the selected user (username) and the reason
@@ -49,9 +49,11 @@ export default function About() {
         </select>
       `,
       showCancelButton: true,
-      confirmButtonText: 'Award',
+      confirmButtonText: "Award",
       preConfirm: () => {
-        const selectElement = document.getElementById('awardSelect') as HTMLSelectElement;
+        const selectElement = document.getElementById(
+          "awardSelect",
+        ) as HTMLSelectElement;
         const selectedAward = selectElement.value;
         // Perform award action using the selected user (username) and the selected award
         Swal.fire(`Awarded ${username} with: ${selectedAward}`);
@@ -61,7 +63,7 @@ export default function About() {
 
   // Sample user data - replace this with your actual user data
   const users: User[] = [
-    { username: 'User 1' },
+    { username: "User 1" },
     // Add more users...
   ];
 
@@ -98,7 +100,7 @@ export default function About() {
           <ul>
             {users
               .filter((user) =>
-                user.username.toLowerCase().includes(searchQuery.toLowerCase())
+                user.username.toLowerCase().includes(searchQuery.toLowerCase()),
               )
               .map((user) => (
                 <li key={user.username} className="py-2">
