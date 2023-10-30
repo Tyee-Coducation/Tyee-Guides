@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   padding: clamp(1rem, 5vw, 5rem);
 }
@@ -9,6 +9,12 @@
   aspect-ratio: 1/1;
   box-sizing: border-box;
   border: 1px solid var(--secondary);
+  position: relative;
+}
+
+.dayContent {
+  width: 100%;
+  height: 100%;
   padding: 1rem;
   overflow-y: scroll;
   position: relative;
@@ -32,6 +38,7 @@
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  z-index: 10;
 }
 
 .submitEvent {
@@ -66,4 +73,17 @@
   margin: auto;
   margin-top: 1rem;
   width: 100%;
+}
+
+.eventBox {
+  background: var(--secondary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.eventBox:hover {
+  filter: brightness(0.9);
 }

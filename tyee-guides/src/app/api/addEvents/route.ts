@@ -7,7 +7,8 @@ export async function POST(req: Request) {
   if (session) {
     try {
       const data = await req.json();
-      const event = data;
+      let event = data;
+      event.person = session?.user?.email;
 
       // Assuming that TyeeGuidesWeek is a Mongoose model
       const saveWeek = await TyeeGuidesWeek.findOne({ week: data.week });
@@ -28,8 +29,6 @@ export async function POST(req: Request) {
 
       // Save the updated document
       await saveWeek.save();
-
-      console.log(saveWeek.days[day]);
       return Response.json({
         message: "Event added successfully",
       });
