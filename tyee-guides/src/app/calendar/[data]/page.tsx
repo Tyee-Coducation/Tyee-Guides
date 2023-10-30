@@ -20,19 +20,19 @@ export default async function Calendar({ params }) {
             return (
               <div className={styles.day} key={index}>
                 <div className={styles.dayContent}>
-                <h2 className={styles.dayName}>{day.split(",")[0]}</h2>
-                <div className={styles.dayEvents}>
-                  {week.days[day].events.map((event, index) => {
-                    return (
-                      <div className={styles.event} key={index}>
-                        <h3 className={styles.eventBox}>
-                          {event.name || event.eventName} {event.startTime} -{" "}
-                          {event.endTime}
-                        </h3>
-                      </div>
-                    );
-                  })}
-                </div>
+                  <h2 className={styles.dayName}>{day.split(",")[0]}</h2>
+                  <div className={styles.dayEvents}>
+                    {week.days[day].events.map((event, index) => {
+                      return (
+                        <div className={styles.event} key={index}>
+                          <h3 className={styles.eventBox}>
+                            {event.name || event.eventName} {event.startTime} -{" "}
+                            {event.endTime}
+                          </h3>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
                 <AddEvents week={week.week} day={day} />
               </div>

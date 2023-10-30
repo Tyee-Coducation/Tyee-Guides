@@ -2,8 +2,10 @@
 
 import styles from "@styles/Calendar.module.css";
 import { useSession } from "next-auth/react";
+import { useRef } from "react";
 
 export default function AddEvents(props) {
+  const form = useRef(null);
   const { data: session } = useSession();
   if (!session) {
     return <></>;
@@ -58,11 +60,11 @@ export default function AddEvents(props) {
     <>
       <button
         className={styles.addEvent}
-        onClick={() => document.getElementById("form").showModal()}
+        onClick={() => form.current.showModal()}
       >
         Add event
       </button>
-      <dialog id="form" className={styles.addEventModal}>
+      <dialog ref={form} className={styles.addEventModal}>
         <form onSubmit={addEvent}>
           <h1 className="mt-2 text-2xl text-center">Add Event:</h1>
           <input
