@@ -130,9 +130,9 @@ export default function Navbar() {
           </>
         )}
         <button onClick={toggleMenu} className="ml-auto mr-4 menu mobile">
-          <div className="menu-line"></div>
-          <div className="menu-line"></div>
-          <div className="menu-line"></div>
+          <div className="menu-line" />
+          <div className="menu-line" />
+          <div className="menu-line" />
         </button>
       </nav>
     </>
