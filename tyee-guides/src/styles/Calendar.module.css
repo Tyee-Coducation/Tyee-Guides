@@ -33,3 +33,37 @@
   bottom: 1rem;
   right: 1rem;
 }
+
+.submitEvent {
+  background: var(--primary);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  color: var(--background);
+  margin-top: 1rem;
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.addEventModal {
+  width: 50%;
+  min-width: 250px;
+  max-width: 400px;
+  border-radius: 1rem;
+  padding: clamp(1rem, 2vw, 3rem);
+}
+
+.addEventModal > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addEventModal > form > input[type="text"] {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--secondary);
+  margin: auto;
+  margin-top: 1rem;
+  width: 100%;
+}

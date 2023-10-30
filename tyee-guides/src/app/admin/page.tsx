@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import Modal from 'react-modal';
+import { connectToDataBase } from "@lib/db";
+import QuizGeniusWeek from "@models/week";
 
 type User = {
   "user client";

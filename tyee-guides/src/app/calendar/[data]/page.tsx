@@ -25,7 +25,7 @@ export default async function Calendar({ params }) {
                   {week.days[day].events.map((event, index) => {
                     return (
                       <div className={styles.event} key={index}>
-                        <h3 className={styles.eventName}>{event.name}</h3>
+                        <h3 className={styles.eventName}>{event.eventName}</h3>
                         <p className={styles.eventTime}>{event.time}</p>
                         <p className={styles.eventDescription}>
                           {event.description}

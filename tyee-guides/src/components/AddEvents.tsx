@@ -20,6 +20,7 @@ export default function AddEvents(props) {
     });
     const json = await res.json();
     alert(json.message);
+    location.reload();
   }
 
   return (
@@ -30,19 +31,40 @@ export default function AddEvents(props) {
       >
         Add event
       </button>
-      <dialog id="form">
+      <dialog id="form" className={styles.addEventModal}>
         <form onSubmit={addEvent}>
-          <label>Start Time</label>
-          <input required type="text" name="start-time"></input>
-          <label>End Time</label>
-          <input required type="text" name="end-time"></input>
-          <label>Event Name</label>
-          <input required type="text" name="event-name"></input>
-          <label>Event Description</label>
-          <input required type="text" name="event-description"></input>
-          <label>Event Location</label>
-          <input required type="text" name="event-location"></input>
-          <button>Submit</button>
+          <h1 className="mt-2 text-2xl text-center">Add Event:</h1>
+          <input
+            placeholder="Start Time"
+            required
+            type="text"
+            name="start-time"
+          ></input>
+          <input
+            placeholder="End Time"
+            required
+            type="text"
+            name="end-time"
+          ></input>
+          <input
+            placeholder="Event Name"
+            required
+            type="text"
+            name="event-name"
+          ></input>
+          <input
+            placeholder="Event Description"
+            required
+            type="text"
+            name="event-description"
+          ></input>
+          <input
+            placeholder="Event Location"
+            required
+            type="text"
+            name="event-location"
+          ></input>
+          <button className={styles.submitEvent}>Submit</button>
         </form>
       </dialog>
     </>
