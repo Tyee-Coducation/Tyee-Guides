@@ -72,31 +72,31 @@ export default function AddEvents(props) {
             required
             type="text"
             name="start-time"
-           />
+          />
           <input
             placeholder="End Time (Enter like 7:30 am)"
             required
             type="text"
             name="end-time"
-           />
+          />
           <input
             placeholder="Event Name"
             required
             type="text"
             name="event-name"
-           />
+          />
           <input
             placeholder="Event Description"
             required
             type="text"
             name="event-description"
-           />
+          />
           <input
             placeholder="Event Location"
             required
             type="text"
             name="event-location"
-           />
+          />
           <button className={styles.submitEvent}>Submit</button>
         </form>
       </dialog>
