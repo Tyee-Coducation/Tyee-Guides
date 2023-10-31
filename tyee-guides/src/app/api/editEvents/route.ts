@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       }
       const day = event.day;
       let updatedEvent = saveWeek.days[day].events.find(
-        (event) => event._id === data._id
+        (event) => event._id === data._id,
       );
       event._id = data._id;
       if (!updatedEvent) {
