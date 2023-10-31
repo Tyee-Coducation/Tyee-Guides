@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@components/Navbar";
-import Footer from "@components/Footer";
 import Swal from "sweetalert2";
 
 type User = {
@@ -69,8 +67,6 @@ export default function About() {
 
   return (
     <>
-      <Navbar />
-
       <div className="flex h-screen">
         {/* Left Navigation Section */}
         <div className="bg-gray-800 text-gray-100 w-64 flex-shrink-0 p-4">
@@ -123,7 +119,6 @@ export default function About() {
         </div>
       </div>
 
-      <Footer />
     </>
   );
 }

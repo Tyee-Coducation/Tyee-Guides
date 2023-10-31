@@ -1,4 +1,3 @@
-import Navbar from "@components/Navbar";
 import { connectToDataBase } from "@lib/db";
 import TyeeGuidesWeek from "@models/week";
 import styles from "@styles/Calendar.module.css";
@@ -12,7 +11,6 @@ export default async function Calendar({ params }) {
   const week = await TyeeGuidesWeek.findOne({ week: data });
   return (
     <>
-      <Navbar />
       <h1 className={styles.header + " text-3xl"}>{data}</h1>
       <div className={styles.grid}>
         {week &&
