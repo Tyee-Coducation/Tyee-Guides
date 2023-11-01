@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import Swal from "sweetalert2";
+
+
 
 type User = {
   username: string;
@@ -8,11 +9,13 @@ type User = {
 };
 
 export default function About() {
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   "use client";
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const handleBanClick = (username: string) => {
+    
     setSelectedUser(username);
     Swal.fire({
       title: `Ban ${username}`,
