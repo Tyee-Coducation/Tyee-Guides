@@ -1,8 +1,6 @@
-import Navbar from "@components/Navbar";
 import logo from "@public/logo.png";
 import maxlogo from "@public/maxlogo.png";
 import williamlogo from "@public/williamlogo.png";
-import Footer from "@components/Footer";
 import styles from "@styles/About.module.css";
 import Image from "next/image";
 import LoginButton from "@components/LoginButton";
@@ -10,7 +8,6 @@ import LoginButton from "@components/LoginButton";
 export default function About() {
   return (
     <>
-      <Navbar />
       <div className={styles.container}>
         <div className={styles.introText}>
           <h1 className="text-5xl mt-6">Helping Students At Tyee</h1>
@@ -45,7 +42,7 @@ export default function About() {
             everyone.
           </p>
         </div>
-        <div className="basis-80 mt-12 grow p-6 shadow-lg rounded-md" >
+        <div className="basis-80 mt-12 grow p-6 shadow-lg rounded-md">
           <h1 className="text-3xl">Making Life Easier</h1>
           <p className="mt-6 text-lg ">
             There is no reason students to struggles to find information about
@@ -54,7 +51,7 @@ export default function About() {
           </p>
         </div>
       </div>
-      <Footer />
+      
     </>
   );
 }

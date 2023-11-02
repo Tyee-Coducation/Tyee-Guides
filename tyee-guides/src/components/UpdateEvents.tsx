@@ -7,10 +7,10 @@ import { useRef } from "react";
 export default function AddEvents(props) {
   const form = useRef(null);
   const { data: session } = useSession();
-  if (!session) {
+  if (session?.user?.email !== props.event?.person) {
     return <></>;
   }
-  async function addEvent(event) {
+  async function updateEvents(event) {
     event.preventDefault();
     const timeRegex = /^(0?[1-9]|1[0-2]):[0-5][0-9] [APap][mM]$/;
     const data = new FormData(event.currentTarget);
@@ -37,7 +37,7 @@ export default function AddEvents(props) {
         return (hour1 + 12) * 60 + minutes;
       }
     }
-    const res = await fetch("/api/addEvents", {
+    const res = await fetch("/api/editEvents", {
       method: "POST",
       body: JSON.stringify({
         startTime: data.get("start-time"),
@@ -49,6 +49,7 @@ export default function AddEvents(props) {
         location: data.get("event-location"),
         week: props.week,
         day: props.day,
+        _id: props.event._id,
       }),
     });
     const json = await res.json();
@@ -59,44 +60,49 @@ export default function AddEvents(props) {
   return (
     <>
       <button
-        className={styles.addEvent}
+        className={styles.updateEvents}
         onClick={() => form.current.showModal()}
       >
-        Add event
+        Update
       </button>
       <dialog ref={form} className={styles.addEventModal}>
-        <form onSubmit={addEvent}>
-          <h1 className="mt-2 text-2xl text-center">Add Event:</h1>
+        <form onSubmit={updateEvents}>
+          <h1 className="mt-2 text-2xl text-center">Update Event:</h1>
           <input
             placeholder="Start Time (Enter like 7:30 am)"
             required
             type="text"
             name="start-time"
-          />
+            defaultValue={props.event?.startTime}
+          ></input>
           <input
             placeholder="End Time (Enter like 7:30 am)"
             required
             type="text"
             name="end-time"
-          />
+            defaultValue={props.event?.endTime}
+          ></input>
           <input
             placeholder="Event Name"
             required
             type="text"
             name="event-name"
-          />
+            defaultValue={props.event?.name}
+          ></input>
           <input
             placeholder="Event Description"
             required
             type="text"
             name="event-description"
-          />
+            defaultValue={props.event?.description}
+          ></input>
           <input
             placeholder="Event Location"
             required
             type="text"
             name="event-location"
-          />
+            defaultValue={props.event?.location}
+          ></input>
           <button className={styles.submitEvent}>Submit</button>
         </form>
       </dialog>

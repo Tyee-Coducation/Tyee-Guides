@@ -8,8 +8,7 @@ export async function POST(req: Request) {
     try {
       const data = await req.json();
       let event = data;
-      event.person = session?.user?.email;
-
+      event.person = session.user.email;
       // Assuming that TyeeGuidesWeek is a Mongoose model
       const saveWeek = await TyeeGuidesWeek.findOne({ week: data.week });
 
@@ -18,19 +17,25 @@ export async function POST(req: Request) {
           message: "Week not found",
         });
       }
-
       const day = event.day;
-
-      // Push the event data into the events array for the specific day
-      saveWeek.days[day].events.push(event);
-
-      // Mark the document as modified
+      let updatedEvent = saveWeek.days[day].events.find(
+        (event) => event._id === data._id
+      );
+      event._id = data._id;
+      if (!updatedEvent) {
+        return Response.json({
+          message: "Event not found",
+        });
+      }
+      saveWeek.days[day].events[
+        saveWeek.days[day].events.indexOf(updatedEvent)
+      ] = event;
       saveWeek.markModified("days");
 
       // Save the updated document
       await saveWeek.save();
       return Response.json({
-        message: "Event added successfully",
+        message: "Event Updated successfully",
       });
     } catch (err) {
       console.error(err);

@@ -1,12 +1,8 @@
-import Image from "next/image";
-import Navbar from "@components/Navbar";
 import LoginButton from "@components/LoginButton";
-import Footer from "@components/Footer";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <header className="hero">
         <div className="hero-content">
           <h1>Tyee Guides</h1>
@@ -61,10 +57,9 @@ export default function Home() {
             better place. Join the community and make Tyee Guides better for
             everyone.
           </p>
-          <LoginButton className="mt-6 loginButton"/>
+          <LoginButton className="mt-6 loginButton" />
         </section>
       </main>
-      <Footer />
     </>
   );
 }
