@@ -24,7 +24,7 @@ export default async function Week({ params }) {
             <div className={styles.grid}>
               {dayData.events.map((event, index) => {
                 return (
-                  <div className={styles.event}>
+                  <div className={styles.event} key={index}>
                     <h1 className="text-2xl">{event.name}</h1>
                     <p className="text-lg mt-4">{event.description}</p>
                     <p className="text-lg mt-2">{event.location}</p>
