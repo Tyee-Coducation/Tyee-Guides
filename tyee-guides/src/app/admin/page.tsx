@@ -1,25 +1,18 @@
 "use client";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { useSession } from "next-auth/react";
 
 type User = {
   username: string;
 };
 
 export default function About() {
-  const { data: session } = useSession();
-  if (
-    session?.user?.email !== "lockemaximus@yahoo.com" &&
-    session?.user?.email !== "pineappletwo1@gmail.com"
-  ) {
-    return <></>;
-  }
-  ("use client");
+  "use client";
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const handleBanClick = (username: string) => {
+    
     setSelectedUser(username);
     Swal.fire({
       title: `Ban ${username}`,

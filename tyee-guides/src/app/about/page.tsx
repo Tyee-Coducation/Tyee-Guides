@@ -12,7 +12,7 @@ export default function About() {
         <div className={styles.introText}>
           <h1 className="text-5xl mt-6">Helping Students At Tyee</h1>
           <p className="text-xl mt-8 max-w-xl">
-            We're a two-person team supporting tyee middle school students
+            We are a two-person team supporting tyee middle school students
             particularly 6th graders moving to middle school. Our Websites also
             aids all students at Tyee.
           </p>
@@ -52,6 +52,8 @@ export default function About() {
           </p>
         </div>
       </div>
+      <Footer />
     </>
+  );
   );
   }
