@@ -24,7 +24,6 @@ export default function About() {
             alt="Tyee Guides Logo"
             style={{ width: "90%", maxWidth: "500px" }}
             className="mt-8"
-            
           />
         </div>
         <h1 className="mt-8 text-5xl basis-full">Our Beliefs</h1>
@@ -52,8 +51,6 @@ export default function About() {
           </p>
         </div>
       </div>
-      <Footer />
     </>
   );
-  );
-  }
+}
