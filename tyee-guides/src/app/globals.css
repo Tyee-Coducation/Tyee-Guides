@@ -65,10 +65,15 @@
 }
 
 .hero {
-  background-image: url("https://i.ytimg.com/vi/jtyhe_bFtfk/maxresdefault.jpg");
-  background-size: cover;
-  background-position: fixed;
   padding: clamp(2rem, 10vw, 8rem);
+  position: relative;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
 }
 
 .hero-content {

@@ -1,9 +1,19 @@
 import LoginButton from "@components/LoginButton";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <header className="hero">
+        <Image
+          src="https://i.ytimg.com/vi/jtyhe_bFtfk/maxresdefault.jpg"
+          className="heroBackground"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          priority
+          alt="Tyee Guides Background"
+        />
         <div className="hero-content">
           <h1>Tyee Guides</h1>
           <p>
