@@ -9,7 +9,7 @@ type User = {
 };
 
 export default function About() {
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" async/>
   "use client";
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
