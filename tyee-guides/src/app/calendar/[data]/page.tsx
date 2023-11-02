@@ -2,6 +2,7 @@ import { connectToDataBase } from "@lib/db";
 import TyeeGuidesWeek from "@models/week";
 import styles from "@styles/Calendar.module.css";
 import AddEvents from "@components/AddEvents";
+import Link from "next/link";
 
 export default async function Calendar({ params }) {
   let { data } = params;
@@ -18,7 +19,9 @@ export default async function Calendar({ params }) {
             return (
               <div className={styles.day} key={index}>
                 <div className={styles.dayContent}>
-                  <h2 className={styles.dayName}>{day.split(",")[0]}</h2>
+                  <Link href={`/day/${week.week}/${day}`}>
+                    <h2 className={styles.dayName}>{day.split(",")[0]}</h2>
+                  </Link>
                   <div className={styles.dayEvents}>
                     {week.days[day].events.map((event, index) => {
                       return (
@@ -32,7 +35,7 @@ export default async function Calendar({ params }) {
                     })}
                   </div>
                 </div>
-                <AddEvents week={week.week} day={day} />
+                <AddEvents week={week.week} day={day} className="addEvent" />
               </div>
             );
           })}

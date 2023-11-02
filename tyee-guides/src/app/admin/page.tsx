@@ -1,14 +1,21 @@
 "use client";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { useSession } from "next-auth/react";
 
 type User = {
   username: string;
-  // Add any other user properties here
 };
 
 export default function About() {
-  "use client";
+  const { data: session } = useSession();
+  if (
+    session?.user?.email !== "lockemaximus@yahoo.com" &&
+    session?.user?.email !== "pineappletwo1@gmail.com"
+  ) {
+    return <></>;
+  }
+  ("use client");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
@@ -50,7 +57,7 @@ export default function About() {
       confirmButtonText: "Award",
       preConfirm: () => {
         const selectElement = document.getElementById(
-          "awardSelect",
+          "awardSelect"
         ) as HTMLSelectElement;
         const selectedAward = selectElement.value;
         // Perform award action using the selected user (username) and the selected award
@@ -96,7 +103,7 @@ export default function About() {
           <ul>
             {users
               .filter((user) =>
-                user.username.toLowerCase().includes(searchQuery.toLowerCase()),
+                user.username.toLowerCase().includes(searchQuery.toLowerCase())
               )
               .map((user) => (
                 <li key={user.username} className="py-2">
@@ -118,7 +125,6 @@ export default function About() {
           </ul>
         </div>
       </div>
-
     </>
   );
 }

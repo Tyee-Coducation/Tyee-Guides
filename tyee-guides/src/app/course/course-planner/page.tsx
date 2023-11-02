@@ -1,1 +1,4 @@
-import NavBar from @Components
+
+export default function courseplanner(){
+
+}

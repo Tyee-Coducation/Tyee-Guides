@@ -37,6 +37,16 @@ export default function AddEvents(props) {
         return (hour1 + 12) * 60 + minutes;
       }
     }
+    if (
+      convertTime(data.get("start-time")) > convertTime(data.get("end-time"))
+    ) {
+      alert("Please make sure the start time is before the end time");
+      return;
+    }
+    if (data.get("event-name")?.length > 20) {
+      alert("Please make sure the event name is less than 20 characters");
+      return;
+    }
     const res = await fetch("/api/addEvents", {
       method: "POST",
       body: JSON.stringify({
@@ -59,7 +69,7 @@ export default function AddEvents(props) {
   return (
     <>
       <button
-        className={styles.addEvent}
+        className={styles[props.className]}
         onClick={() => form.current.showModal()}
       >
         Add event
@@ -98,6 +108,7 @@ export default function AddEvents(props) {
             name="event-location"
           />
           <button className={styles.submitEvent}>Submit</button>
+          <div onClick={() => form?.current?.close()} className={styles.close}>X</div>
         </form>
       </dialog>
     </>

@@ -21,6 +21,7 @@ export default function AddEvents(props) {
       alert("Please enter a valid start time");
       return;
     }
+
     function convertTime(time) {
       const hour1 = parseInt(time.split(":")[0]);
       const minutes = parseInt(time.split(":")[1].split(" ")[0]);
@@ -36,6 +37,16 @@ export default function AddEvents(props) {
         }
         return (hour1 + 12) * 60 + minutes;
       }
+    }
+    if (
+      convertTime(data.get("start-time")) > convertTime(data.get("end-time"))
+    ) {
+      alert("Please make sure the start time is before the end time");
+      return;
+    }
+    if (data.get("event-name")?.length > 20) {
+      alert("Please make sure the event name is less than 20 characters");
+      return;
     }
     const res = await fetch("/api/editEvents", {
       method: "POST",
@@ -60,7 +71,7 @@ export default function AddEvents(props) {
   return (
     <>
       <button
-        className={styles.updateEvents}
+        className={styles[props.className]}
         onClick={() => form.current.showModal()}
       >
         Update
@@ -104,6 +115,9 @@ export default function AddEvents(props) {
             defaultValue={props.event?.location}
           ></input>
           <button className={styles.submitEvent}>Submit</button>
+          <div onClick={() => form?.current?.close()} className={styles.close}>
+            X
+          </div>
         </form>
       </dialog>
     </>
