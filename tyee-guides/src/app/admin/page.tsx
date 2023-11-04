@@ -7,7 +7,7 @@ type User = {
 };
 
 export default function About() {
-  "use client";\
+  "use client";
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
@@ -67,7 +67,6 @@ export default function About() {
 
   return (
     <>
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" />
       <div className="flex h-screen">
         {/* Left Navigation Section */}
         <div className="bg-gray-800 text-gray-100 w-64 flex-shrink-0 p-4">
