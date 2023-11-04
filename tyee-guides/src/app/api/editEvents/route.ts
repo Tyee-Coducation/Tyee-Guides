@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       message: "You are not the author of the event!",
     });
       }
-      event.person = session.user.email;
+      event.person = session?.user?.email;
       // Assuming that TyeeGuidesWeek is a Mongoose model
       const saveWeek = await TyeeGuidesWeek.findOne({ week: data.week });
 

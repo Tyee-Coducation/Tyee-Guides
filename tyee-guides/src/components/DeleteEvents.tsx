@@ -3,8 +3,10 @@
 import styles from "@styles/Calendar.module.css";
 import { useSession } from "next-auth/react";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function DeleteEvents(props) {
+  const router = useRouter();
   const form = useRef(null);
   const { data: session } = useSession();
   if (!session) {
@@ -18,10 +20,16 @@ export default function DeleteEvents(props) {
         week: props.event.week,
         day: props.event.day,
         _id: props.event._id,
+        person: session?.user?.email,
       }),
     });
     const json = await res.json();
     alert(json.message);
+    if (props.redirect) {
+      alert("redirecting");
+      router.push(props.redirect);
+      return;
+    }
     location.reload();
   }
 
@@ -31,7 +39,7 @@ export default function DeleteEvents(props) {
         className={styles[props.className]}
         onClick={() => form.current.showModal()}
       >
-        Delete event
+        Delete
       </button>
       <dialog ref={form} className={styles.addEventModal}>
         <form onSubmit={deleteEvents}>
