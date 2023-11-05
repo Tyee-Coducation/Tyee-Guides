@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Swal from "sweetalert2"
 
 
 type User = {

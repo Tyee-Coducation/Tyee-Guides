@@ -2,7 +2,7 @@
     {
       "className": "math",
       "description": "test",
-      "imageURL": "https://via.placeholder.com/150",
+      "imageURL": "",
       "recommended": true,
       "pros": [
         "test",
@@ -15,7 +15,7 @@
     {
       "className": "test",
       "description": "test",
-      "imageURL": "https://via.placeholder.com/150",
+      "imageURL": "",
       "recommended": false,
       "pros": [
         "test",
@@ -29,7 +29,7 @@
     {
         "className": "math",
         "description": "test",
-        "imageURL": "https://via.placeholder.com/150",
+        "imageURL": " ",
         "recommended": true,
         "pros": [
         "test",

@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import classesData from './classes.json';
 import { FaTimes } from 'react-icons/fa'; // Importing close icon from react-icons
-import Image from 'next/image';
 
 const ClassList: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<any>(null);
@@ -28,7 +27,7 @@ const ClassList: React.FC = () => {
             style={{ width: '300px' }} // To maintain fixed width for each box
             onClick={() => handleClick(classData)}
           >
-            <Image
+            <image
               src={classData.imageURL}
               alt={classData.className}
               className="w-20 h-20 object-cover rounded-md mr-4"
