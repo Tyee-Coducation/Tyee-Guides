@@ -2,19 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent); 
+}
+
 :root {
   --text: #0f0f0f;
   --background: #f9f9f9;
   --primary: #791216;
   --secondary: #dbdbdb;
   --accent: #797979;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
   }
 }
 
@@ -65,10 +80,15 @@
 }
 
 .hero {
-  background-image: url("https://i.ytimg.com/vi/jtyhe_bFtfk/maxresdefault.jpg");
-  background-size: cover;
-  background-position: fixed;
   padding: clamp(2rem, 10vw, 8rem);
+  position: relative;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
 }
 
 .hero-content {
@@ -161,6 +181,7 @@ main {
 
 .nav {
   position: relative;
+  color: var(--text);
 }
 
 @keyframes fade {

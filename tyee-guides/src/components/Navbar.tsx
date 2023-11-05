@@ -129,7 +129,11 @@ export default function Navbar() {
             </button>
           </>
         )}
-        <button onClick={toggleMenu} className="ml-auto mr-4 menu mobile">
+        <button
+          onClick={toggleMenu}
+          className="ml-auto mr-4 menu mobile"
+          aria-label="Menu"
+        >
           <div className="menu-line" />
           <div className="menu-line" />
           <div className="menu-line" />

@@ -1,6 +1,7 @@
 import { connectToDataBase } from "@lib/db";
 import TyeeGuidesWeek from "@models/week";
 import { getServerSession } from "next-auth";
+import { v4 } from "uuid";
 
 export async function POST(req: Request) {
   const session = await getServerSession();
@@ -9,8 +10,10 @@ export async function POST(req: Request) {
       const data = await req.json();
       let event = data;
       event.person = session?.user?.email;
-
-      // Assuming that TyeeGuidesWeek is a Mongoose model
+      event._id = v4();
+      
+      // Assuming that TyeeGuidesWeek is a Mongoose 
+      await connectToDataBase();
       const saveWeek = await TyeeGuidesWeek.findOne({ week: data.week });
 
       if (!saveWeek) {

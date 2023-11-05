@@ -7,15 +7,14 @@ export async function POST(req: Request) {
   if (session) {
     try {
       const data = await req.json();
-      let event = data;
-      if(session?.user?.email !== data.person){
-        console.log(session?.user?.email, data)
+      if (session?.user?.email !== data.person) {
         return Response.json({
-      message: "You are not the author of the event!",
-    });
+          message: "You are not the author of the event!",
+        });
       }
+      let event = data;
       event.person = session?.user?.email;
-      // Assuming that TyeeGuidesWeek is a Mongoose model
+
       const saveWeek = await TyeeGuidesWeek.findOne({ week: data.week });
 
       if (!saveWeek) {
@@ -23,30 +22,35 @@ export async function POST(req: Request) {
           message: "Week not found",
         });
       }
+
       const day = event.day;
-      let updatedEvent = saveWeek.days[day].events.find(
-        (event) => event._id === data._id
+
+      // Push the event data into the events array for the specific day
+      let deleteEvent = saveWeek.days[day].events.find(
+        (e) => e._id === event._id
       );
-      event._id = data._id;
-      if (!updatedEvent) {
+      if (!deleteEvent) {
         return Response.json({
           message: "Event not found",
         });
+      } else {
+        saveWeek.days[day].events.splice(
+          saveWeek.days[day].events.indexOf(deleteEvent),
+          1
+        );
       }
-      saveWeek.days[day].events[
-        saveWeek.days[day].events.indexOf(updatedEvent)
-      ] = event;
+      // Mark the document as modified
       saveWeek.markModified("days");
 
       // Save the updated document
       await saveWeek.save();
       return Response.json({
-        message: "Event Updated successfully",
+        message: "Event Deleted successfully",
       });
     } catch (err) {
       console.error(err);
       return Response.json({
-        message: "Error adding event",
+        message: "Error Deleting event",
       });
     }
   } else {

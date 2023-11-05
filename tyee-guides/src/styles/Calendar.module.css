@@ -59,6 +59,7 @@
   max-width: 400px;
   border-radius: 1rem;
   padding: clamp(1rem, 2vw, 3rem);
+  position: relative;
 }
 
 .addEventModal > form {
@@ -67,6 +68,7 @@
 }
 
 .addEventModal > form > input[type="text"] {
+  font-size: 1rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
   background: var(--secondary);
@@ -86,4 +88,41 @@
 
 .eventBox:hover {
   filter: brightness(0.9);
+}
+
+.updateEvents {
+  background: var(--primary);
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--background);
+  margin-top: 1rem;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dayAddEvent {
+  background: var(--primary);
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--background);
+  margin-bottom: 2rem;
+}
+
+.dayDeleteEvents {
+  background: var(--background);
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+  box-shadow: inset 0px 0px 0px 2px var(--text);
+  margin-left: 0.5rem;  
 }
