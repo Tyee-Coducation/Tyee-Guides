@@ -134,6 +134,7 @@
   background: var(--background);
   display: flex;
   flex-direction: column;
+  z-index: 1000;
 }
 
 .dropdown-item {
@@ -158,7 +159,7 @@
 }
 
 main {
-  margin: clamp(2rem, 5vh, 5rem) clamp(2rem, 10vw, 8rem);
+  margin: clamp(2rem, 5vh, 5rem) clamp(1rem, 10vw, 8rem);
   padding: clamp(1rem, 5vw, 5rem);
   max-width: 1000px;
 }
