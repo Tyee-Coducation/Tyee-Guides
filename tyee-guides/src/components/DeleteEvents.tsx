@@ -26,7 +26,6 @@ export default function DeleteEvents(props) {
     const json = await res.json();
     alert(json.message);
     if (props.redirect) {
-      alert("redirecting");
       router.push(props.redirect);
       return;
     }

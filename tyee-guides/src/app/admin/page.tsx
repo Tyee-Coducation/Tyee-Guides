@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
-import Swal from "sweetalert2"
-
+import { useState, useRef } from "react";
+import Swal from "sweetalert2";
+import { useSession } from "next-auth/react";
 
 type User = {
   username: string;
@@ -9,11 +9,34 @@ type User = {
 
 export default function About() {
   "use client";
+  const { data: session } = useSession();
+  if (
+    session?.user?.email !== "lockemaximus@yahoo.com" &&
+    session?.user?.email !== "pineappletwo@gmail.com"
+  ) {
+    return <></>;
+  }
+  const className = useRef(null);
+  const classInfo = useRef(null);
+  const classTeacher = useRef(null);
+  const classRoom = useRef(null);
+  async function submit() {
+    const res = await fetch("/api/newClass", {
+      method: "POST",
+      body: JSON.stringify({
+        name: className?.current?.value,
+        teacher: classTeacher?.current?.value,
+        info: classInfo?.current?.value,
+        room: classRoom?.current?.value,
+      }),
+    });
+    const json = await res.json();
+    alert(json.message);
+  }
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
   const handleBanClick = (username: string) => {
-    
     setSelectedUser(username);
     Swal.fire({
       title: `Ban ${username}`,
@@ -117,6 +140,43 @@ export default function About() {
                 </li>
               ))}
           </ul>
+          <h1 className="text-4xl">Add Class</h1>
+          <form onSubmit={submit}>
+            <div className="flex flex-col space-y-4">
+              <label className="font-bold text-lg">Class Name</label>
+              <input
+                type="text"
+                ref={className}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
+
+              <label className="font-bold text-lg">Class Teacher</label>
+              <input
+                type="text"
+                ref={classTeacher}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
+
+              <label className="font-bold text-lg">Class Info</label>
+              <input
+                type="text"
+                ref={classInfo}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
+
+              <label className="font-bold text-lg">Class Room</label>
+              <input
+                type="text"
+                ref={classRoom}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
+            </div>
+            <button>Submit</button>
+          </form>
         </div>
       </div>
     </>
