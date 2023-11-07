@@ -17,7 +17,7 @@ const TOSPage = () => {
           </p>
           <h2 className="text-2xl font-bold mb-2">2. Abuse</h2>
           <p className="mb-4">
-            Any sort of insults both you mean it or didn't will count as abuse,spreading false informationm, spamming and NSFW content also counts as abuse any violate of abuse would result in a ban.
+            Any sort of insults both you mean it or did not will count as abuse,spreading false informationm, spamming and NSFW content also counts as abuse any violate of abuse would result in a ban.
           </p>
           <h2 className="text-2xl font-bold mb-2">3. Exploiting</h2>
           <p className="mb-4">
