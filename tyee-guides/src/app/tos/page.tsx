@@ -21,7 +21,7 @@ const TOSPage = () => {
           </p>
           <h2 className="text-2xl font-bold mb-2">3. Exploiting</h2>
           <p className="mb-4">
-            Any action of expoliting the website for any kind of purpose will violate our TOS and will result in a ban. Including (but not limiting to) using scripts to transfer this website into a proxy site/game site, DDOSing the site
+            Any action of expoliting the website for any kind of purpose will violate our TOS and will result in a ban. Including but not limiting to using scripts to transfer this website into a proxy site/game site, DDOSing the site
           </p>
           <h2 className="text-2xl font-bold mb-2">4. Escaping Loopholes</h2>
           <p className="mb-4">
