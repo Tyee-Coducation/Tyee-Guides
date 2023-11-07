@@ -1,58 +1,91 @@
 [
     {
-      "className": "math",
-      "description": "test",
-      "imageURL": "",
+      "className": "Applied Engineering",
+      "description": "This class where you learn the basics of engineering",
+      
       "recommended": true,
       "pros": [
-        "test",
-        "test"
+        "Required to take other CTE classes",
+        "Fun projects",
+        "Free A as long as you do all the flipgrids"
       ],
       "cons": [
-        "tests"
+        "Sanding is pretty boring",
+        "Might be boring at the start"
       ]
     },
     {
-      "className": "test",
-      "description": "test",
-      "imageURL": "",
+      "className": "Coding in Python 1",
+      "description": "This Class teaches you how to program in the popular language Python",
+      
       "recommended": false,
       "pros": [
-        "test",
-        "test"
+        "You get the basics of Python and get a good understanding of it",
+        "Teacher keeps extending deadlines"
       ],
       "cons": [
-        "test"
+        "Extremely Unproductive Class, YouTube would teach you Python much much faster",
+        "Pretty much a chatting hall",
+        "Straight up boring for people who actually want to learn",
+        "There are tests"
       ]
     },
 
     {
-        "className": "math",
+        "className": "Flight and Space",
         "description": "test",
-        "imageURL": " ",
         "recommended": true,
         "pros": [
-        "test",
-        "test"
+        "You will launch your own satilite to space (actual space)",
+        "You get to take a video of your actual satilite in space"
         ],
         "cons": [
-        "tests"
+        "Very challenging class as you need make the satilite from scratch",
+        "Pretty boring at first"
         ]
     },
 
     {
-        "className": "test",
+        "className": "AVID",
         "description": "test",
-        "imageURL": "https://via.placeholder.com/150",
-        "recommended": false,
+        "recommended": true,
         "pros": [
-        "test",
-        "test"
+        "Free Stuff",
+        "You get learn to orginze your time and prepare for hs"
+
         ],
         "cons": [
-        "test"
+        "Bring a charger everyday and writing planners might be the thing you don't like doing (trust me doing so is worth it)"
         ]
-    }
+    },
+    {
+      "className": "Computer Science Discoveries",
+      "description": "You get to make a webiste",
+      "recommended": false,
+      "pros": [
+        "You get the basics of Web Development and get a good understanding of it",
+        "Teacher keeps extending deadlines"
+      ],
+      "cons": [
+        "Extremely Unproductive Class, YouTube would teach you Web development much faster",
+        "What the teacher makes you do everday is just go on the internet and learn it yourself",
+        "Straight up boring for people who actually want to learn"
+      ]
+  },
+
+  {
+      "className": "Media Tech",
+      "description": "test",
+      "recommended": false,
+      "pros": [
+      "",
+      ""
+
+      ],
+      "cons": [
+      "Chatting Hall/Gaming Hall with good"
+      ]
+  }
 
 ]
 
