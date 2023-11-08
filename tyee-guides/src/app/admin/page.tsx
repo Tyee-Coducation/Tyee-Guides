@@ -9,6 +9,12 @@ type User = {
 
 export default function About() {
   "use client";
+  const className = useRef(null);
+  const classInfo = useRef(null);
+  const classTeacher = useRef(null);
+  const classRoom = useRef(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const { data: session } = useSession();
   if (
     session?.user?.email !== "lockemaximus@yahoo.com" &&
@@ -16,10 +22,7 @@ export default function About() {
   ) {
     return <></>;
   }
-  const className = useRef(null);
-  const classInfo = useRef(null);
-  const classTeacher = useRef(null);
-  const classRoom = useRef(null);
+
   async function submit() {
     const res = await fetch("/api/newClass", {
       method: "POST",
@@ -33,8 +36,7 @@ export default function About() {
     const json = await res.json();
     alert(json.message);
   }
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+
 
   const handleBanClick = (username: string) => {
     setSelectedUser(username);
