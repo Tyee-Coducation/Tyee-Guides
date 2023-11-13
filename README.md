@@ -10,8 +10,6 @@ roadmap
 
 - finish classes & apis
 
-- buy me a coffee setup
-
 - more guides
 
 - tyee map
