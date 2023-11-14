@@ -14,6 +14,7 @@ export default async function ({ params }) {
       talley += parseInt(rating) * classData.ratings[rating];
       votes += classData.ratings[rating];
     });
+    console.log(talley, votes);
     classData.average = talley !== 0 ? talley / votes : "No Votes";
   }
   return (
@@ -22,7 +23,7 @@ export default async function ({ params }) {
         <>
           <h1 className="text-4xl">{classData.name}</h1>
           <p className="mt-2 text-lg">
-            {classData.info} {classData.average}
+            {classData.info} {Math.round(classData.average * 10) / 10}
           </p>
           <p className="mt-2 text-lg">{classData.teacher}</p>
           <p className="mt-2 text-lg">{classData.room}</p>
