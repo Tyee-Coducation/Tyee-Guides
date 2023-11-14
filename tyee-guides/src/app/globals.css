@@ -7,16 +7,15 @@
   width: 10px;
 }
 
- 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary); 
+  background: var(--secondary);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent); 
+  background: var(--accent);
 }
 
 :root {
@@ -206,4 +205,26 @@ main {
   padding: clamp(1rem, 2vw, 3rem);
   text-align: center;
   box-shadow: 0 -3px 10px 5px var(--secondary);
+}
+
+.item-more:hover .more {
+  display: flex !important;
+}
+
+.more {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--background);
+  box-shadow: 0 0 5px 3px var(--secondary);
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  z-index: 1000;
+  font-size: 1rem;
+}
+
+.item-more {
+  position: relative;
 }

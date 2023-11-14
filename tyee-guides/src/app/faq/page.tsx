@@ -7,8 +7,8 @@ const FaqPage = () => {
   const questions = [
     {
       id: 1,
-      question: 'Why do i have to login?',
-      answer: 'We do this to prevent abuse and trolling.'
+      question: 'Is Tyee a good School',
+      answer: 'Yes'
     },
     {
       id: 2,

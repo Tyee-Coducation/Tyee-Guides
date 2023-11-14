@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -72,7 +72,6 @@ export default function Navbar() {
             <Link href="/faq" className="dropdown-item">
               Tyee FAQ
             </Link>
-
             {!session ? (
               <>
                 <button onClick={() => signIn()} className="dropdown-item">
@@ -107,6 +106,29 @@ export default function Navbar() {
         <Link href="/faq" className="navItem desktop">
           Tyee FAQ
         </Link>
+        <div className="navItem desktop flex items-center item-more">
+          More{" "}
+          <svg
+            className={`w-6 h-6 transition-transform transform ml-1 arrow
+            }`}
+            style={{ width: "1rem", height: "1rem" }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <div className="more">
+            <Link href="/newspaper">Newspaper</Link>
+            <Link href="/guides">Guides</Link>
+            <Link href="/tos">TOS</Link>
+          </div>
+        </div>
         {!session ? (
           <>
             <button
