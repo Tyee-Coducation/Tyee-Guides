@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   description: "Students helping students around Tyee Middle School",
 };
 
+
 export default async function RootLayout({
   children,
 }: {

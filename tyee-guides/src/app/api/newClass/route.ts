@@ -27,11 +27,9 @@ export async function POST(req: Request) {
         5: 0,
       },
       genRatings: {
-        strict: [0, 0],
-        difficulty: [0, 0],
         fun: [0, 0],
+        difficulty: [0, 0],
         workload: [0, 0],
-        hwload: [0, 0],
       },
     });
     await newClass.save();

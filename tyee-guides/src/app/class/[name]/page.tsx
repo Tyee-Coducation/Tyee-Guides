@@ -1,5 +1,6 @@
 import { connectToDataBase } from "@lib/db";
 import TyeeGuidesClass from "@models/class";
+import RateClass from "@components/RateClass";
 
 export default async function ({ params }) {
   let { name } = params;
@@ -10,7 +11,6 @@ export default async function ({ params }) {
     let votes = 0;
     let talley = 0;
     Object.keys(classData.ratings).forEach((rating) => {
-      console.log(parseInt(rating), classData.ratings[rating]);
       talley += parseInt(rating) * classData.ratings[rating];
       votes += classData.ratings[rating];
     });
@@ -30,9 +30,7 @@ export default async function ({ params }) {
           <h1 className="mt-6 text-2xl">
             How would you rate {classData.name}?
           </h1>
-          <form action="">
-            <input name="rating"></input>
-          </form>
+          <RateClass name={classData.name} />
         </>
       ) : (
         <div>

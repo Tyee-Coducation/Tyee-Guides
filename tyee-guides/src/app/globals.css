@@ -25,6 +25,8 @@
   --secondary: #dbdbdb;
   --accent: #797979;
   --shadow: rgba(0, 0, 0, 0.1);
+  --starBackground: #ddd;
+  --starForeground: #f90;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -205,6 +207,10 @@ main {
   padding: clamp(1rem, 2vw, 3rem);
   text-align: center;
   box-shadow: 0 -3px 10px 5px var(--secondary);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .item-more:hover .more {

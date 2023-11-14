@@ -11,15 +11,16 @@ const ClassSchema = new Schema({
   },
   classInfo: {
     type: String,
+    required: true,
   },
   classRoom: {
     type: String,
+    required: true,
   },
   ratings: {
     type: Object,
-    required: true,
   },
-  comments: {
+  genRatings: {
     type: Object,
   },
 });

@@ -16,7 +16,6 @@ const NewspaperPage = () => {
               <p className="text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in tortor et justo
                 laoreet commodo. Sed rhoncus, ante eget tincidunt suscipit.
-                {/* Add your article content here */}
               </p>
             </article>
           </div>
@@ -25,8 +24,8 @@ const NewspaperPage = () => {
             <aside className="bg-white p-4 rounded shadow-md">
               <h2 className="text-xl font-bold mb-2">Trending</h2>
               <ul className="text-gray-700">
-                <li>tyee gonna be destroyed?</li>
-                <li>crazy</li>
+                <li>I am a place holder</li>
+                <li>I am also a place holder</li>
               </ul>
             </aside>
           </div>
@@ -35,11 +34,10 @@ const NewspaperPage = () => {
         <section className="mt-8">
           <h2 className="text-2xl font-bold mb-4">Recent Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Display recent articles */}
             <div className="bg-white p-4 rounded shadow-md">
               <h3 className="text-lg font-bold mb-2">Article Title</h3>
               <p className="text-gray-700">
-                Brief summary or excerpt of the article content goes here.
+                Exposed: max have no friends
               </p>
             </div>
             <div className="bg-white p-4 rounded shadow-md">
@@ -48,11 +46,8 @@ const NewspaperPage = () => {
                 Another brief summary or excerpt of the article content.
               </p>
             </div>
-            {/* Add more recent articles */}
           </div>
         </section>
-
-        
       </div>
     </div>
   );

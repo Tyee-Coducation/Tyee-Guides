@@ -15,6 +15,14 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  serverActions: {
+    allowedForwardedHosts: [
+      "https://fantastic-telegram-g97g4g4gq4529vvp-3000.app.github.dev/",
+    ],
+    allowedOrigins: [
+      "https://fantastic-telegram-g97g4g4gq4529vvp-3000.app.github.dev/",
+    ],
+  },
 };
 
 module.exports = nextConfig;
