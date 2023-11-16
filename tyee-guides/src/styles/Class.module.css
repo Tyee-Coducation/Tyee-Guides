@@ -72,3 +72,17 @@
   margin-top: 1rem;
   display: block;
 }
+
+.icon {
+  color: var(--starBackground);
+  font-size: 2rem;
+  position: relative;
+  --width: 0%;
+}
+
+.icon::before {
+  content: "★";
+  color: var(--starForeground);
+  position: absolute;
+  clip-path: polygon(0 0, var(--width) 0, var(--width) 100%, 0 100%);
+}

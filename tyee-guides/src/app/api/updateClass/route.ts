@@ -13,7 +13,10 @@ export async function POST(req: Request) {
     let classExists = await QuizGeniusClass.findOne({ name: data.name });
     if (classExists) {
       try {
-        classExists = data;
+        classExists.teacher = data.teacher;
+        classExists.classInfo = data.classInfo;
+        classExists.classRoom = data.classRoom;
+        classExists.name = data.name;
         await classExists.save();
         return Response.json({ message: "Class updated." });
       } catch (err) {

@@ -19,6 +19,11 @@ export async function POST(req: Request) {
       message: "Class not found",
     });
   }
+  if (searchedClass.votedUsers.includes(session?.user?.email)) {
+    return Response.json({
+      message: "You have already voted for this class",
+    });
+  }
   searchedClass.ratings[data.overallRating] += 1;
   Object.keys(searchedClass.genRatings).forEach((key) => {
     if (data.genRatings[key]) {
@@ -26,6 +31,8 @@ export async function POST(req: Request) {
       searchedClass.genRatings[key][1] += 1;
     }
   });
+  searchedClass.votedUsers.push(session?.user?.email);
+  searchedClass.markModified("votedUsers");
   searchedClass.markModified("ratings");
   searchedClass.markModified("genRatings");
   await searchedClass.save();

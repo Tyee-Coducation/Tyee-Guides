@@ -61,6 +61,7 @@ export default function RateClass({ name }) {
     });
     const json = await req.json();
     alert(json.message);
+    location.reload();
   }
   return (
     <>

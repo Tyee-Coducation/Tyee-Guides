@@ -23,6 +23,10 @@ const ClassSchema = new Schema({
   genRatings: {
     type: Object,
   },
+  votedUsers: {
+    type: Array,
+    default: [],
+  },
 });
 
 const TyeeGuidesClass = models.Class || model("Class", ClassSchema);

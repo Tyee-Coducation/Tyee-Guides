@@ -13,6 +13,7 @@ export default function About() {
   const classInfo = useRef(null);
   const classTeacher = useRef(null);
   const classRoom = useRef(null);
+  const submitType = useRef(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const { data: session } = useSession();
@@ -24,7 +25,16 @@ export default function About() {
   }
 
   async function submit() {
-    const res = await fetch("/api/newClass", {
+    let api;
+    if (submitType?.current?.value === "updateClass") {
+      api = "/api/updateClass";
+    } else if (submitType?.current?.value === "newClass") {
+      api = "/api/newClass";
+    } else {
+      alert("Invalid submission type");
+      return;
+    }
+    const res = await fetch(api, {
       method: "POST",
       body: JSON.stringify({
         name: className?.current?.value,
@@ -131,9 +141,16 @@ export default function About() {
                 </li>
               ))}
           </ul>
-          <h1 className="text-4xl">Add Class</h1>
+          <h1 className="text-4xl">Add/Update Class</h1>
           <form onSubmit={submit}>
             <div className="flex flex-col space-y-4">
+              <label className="font-bold text-lg">Submission Type</label>
+              <input
+                type="text"
+                ref={submitType}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
               <label className="font-bold text-lg">Class Name</label>
               <input
                 type="text"
