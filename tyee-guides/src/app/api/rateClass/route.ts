@@ -11,9 +11,9 @@ export async function POST(req: Request) {
     });
   }
   await connectToDataBase();
-  let className = JSON.parse(data.className);
+  let className = data.className.replace('"', '');
   console.log(className);
-  const searchedClass = await TyeeGuidesClass.findOne({ name: "Chinese 2" });
+  const searchedClass = await TyeeGuidesClass.findOne({ name: className });
   if (!searchedClass) {
     return Response.json({
       message: "Class not found",
@@ -36,6 +36,5 @@ export async function POST(req: Request) {
   searchedClass.markModified("ratings");
   searchedClass.markModified("genRatings");
   await searchedClass.save();
-  console.log(searchedClass);
   return Response.json({ message: "Rating added successfully" });
 }

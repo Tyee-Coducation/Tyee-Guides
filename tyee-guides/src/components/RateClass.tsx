@@ -46,7 +46,7 @@ export default function RateClass({ name }) {
   async function submit(e) {
     e.preventDefault();
     const data = new FormData(form?.current);
-    let test = JSON.stringify(name);
+    let test = name.split("%20").join(" ");
     const req = await fetch("/api/rateClass", {
       method: "POST",
       body: JSON.stringify({
