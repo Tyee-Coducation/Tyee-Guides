@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-import { FiCheck } from 'react-icons/fi'; // Assuming you're using React Icons
+import { FiCheck } from 'react-icons/fi';
 
 interface CourseSelectionPageProps {
-  // Define props if needed
+
 }
 
 const CourseSelectionPage: React.FC<CourseSelectionPageProps> = () => {
@@ -25,17 +25,16 @@ const CourseSelectionPage: React.FC<CourseSelectionPageProps> = () => {
   };
 
   const courses: { name: string, hasAlert: boolean }[] = [
-    { name: 'Mathematics', hasAlert: false },
-    { name: 'Science', hasAlert: false },
-    { name: 'History', hasAlert: false },
+    { name: 'CTE', hasAlert: false },
+    { name: 'Music', hasAlert: false },
+    { name: 'AVID', hasAlert: false },
     { name: 'Programming', hasAlert: true },
-    // Add more courses as needed
   ];
 
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="max-w-3xl p-6 bg-white rounded-lg shadow-xl">
-        <h1 className="text-3xl font-bold mb-4">Select Your Preferred Courses</h1>
+        <h1 className="text-3xl font-bold mb-4">Select Your Preferred Topics</h1>
         <div className="grid grid-cols-2 gap-4">
           {courses.map((course, index) => (
             <div
@@ -63,9 +62,9 @@ const CourseSelectionPage: React.FC<CourseSelectionPageProps> = () => {
           ))}
         </div>
         <div className="mt-6">
-          <p className="text-lg font-bold">Selected Courses:</p>
+          <p className="text-lg font-bold">Selected Topics:</p>
           {selectedCourses.length === 0 ? (
-            <p className="italic">No courses selected</p>
+            <p className="italic">No topics selected</p>
           ) : (
             <ul>
               {selectedCourses.map((course, index) => (

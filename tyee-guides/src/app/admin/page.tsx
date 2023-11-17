@@ -13,30 +13,39 @@ export default function About() {
   const classInfo = useRef(null);
   const classTeacher = useRef(null);
   const classRoom = useRef(null);
+  const submitType = useRef(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
   const { data: session } = useSession();
   if (
     session?.user?.email !== "lockemaximus@yahoo.com" &&
-    session?.user?.email !== "pineappletwo@gmail.com"
+    session?.user?.email !== "pineappletwo1@gmail.com"
   ) {
-    return <></>;
+    return <h1>No Access</h1>;
   }
 
   async function submit() {
-    const res = await fetch("/api/newClass", {
+    let api;
+    if (submitType?.current?.value === "updateClass") {
+      api = "/api/updateClass";
+    } else if (submitType?.current?.value === "newClass") {
+      api = "/api/newClass";
+    } else {
+      alert("Invalid submission type");
+      return;
+    }
+    const res = await fetch(api, {
       method: "POST",
       body: JSON.stringify({
         name: className?.current?.value,
         teacher: classTeacher?.current?.value,
-        info: classInfo?.current?.value,
-        room: classRoom?.current?.value,
+        classInfo: classInfo?.current?.value,
+        classRoom: classRoom?.current?.value,
       }),
     });
     const json = await res.json();
     alert(json.message);
   }
-
 
   const handleBanClick = (username: string) => {
     setSelectedUser(username);
@@ -55,7 +64,7 @@ export default function About() {
             // Perform ban action here with the 'username' and 'reason'
             Swal.fire(`Banned ${username} for reason: ${reason}`);
             resolve();
-          }, 1500); // Simulating a delay
+          }, 1500);
         });
       },
     });
@@ -69,7 +78,6 @@ export default function About() {
         <select id="awardSelect" class="swal2-select">
           <option value="award1">Award 1</option>
           <option value="award2">Award 2</option>
-          <!-- Add more award options... -->
         </select>
       `,
       showCancelButton: true,
@@ -79,24 +87,19 @@ export default function About() {
           "awardSelect"
         ) as HTMLSelectElement;
         const selectedAward = selectElement.value;
-        // Perform award action using the selected user (username) and the selected award
         Swal.fire(`Awarded ${username} with: ${selectedAward}`);
       },
     });
   };
 
-  // Sample user data - replace this with your actual user data
   const users: User[] = [
-    { username: "User 1" },
-    // Add more users...
+    // import from database
   ];
 
   return (
     <>
       <div className="flex h-screen">
-        {/* Left Navigation Section */}
         <div className="bg-gray-800 text-gray-100 w-64 flex-shrink-0 p-4">
-          {/* Navigation items with increased spacing */}
           <h1 className="text-2xl font-bold mb-6">Navigation</h1>
           <ul>
             <li className="mb-3">Dashboard</li>
@@ -105,11 +108,8 @@ export default function About() {
           </ul>
         </div>
 
-        {/* Dashboard Section */}
         <div className="flex-1 overflow-y-auto p-8">
           <h2 className="text-3xl font-bold mb-6">Dashboard</h2>
-
-          {/* User Search */}
           <input
             type="text"
             placeholder="Search users..."
@@ -118,7 +118,6 @@ export default function About() {
             className="w-full rounded-md px-2 py-1 mb-4"
           />
 
-          {/* User List */}
           <ul>
             {users
               .filter((user) =>
@@ -142,9 +141,16 @@ export default function About() {
                 </li>
               ))}
           </ul>
-          <h1 className="text-4xl">Add Class</h1>
+          <h1 className="text-4xl">Add/Update Class</h1>
           <form onSubmit={submit}>
             <div className="flex flex-col space-y-4">
+              <label className="font-bold text-lg">Submission Type</label>
+              <input
+                type="text"
+                ref={submitType}
+                className="border-2 border-gray-300 p-2 rounded-md"
+                required={true}
+              />
               <label className="font-bold text-lg">Class Name</label>
               <input
                 type="text"
