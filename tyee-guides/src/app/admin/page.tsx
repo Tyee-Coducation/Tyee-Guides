@@ -37,7 +37,7 @@ export default function About() {
     const res = await fetch(api, {
       method: "POST",
       body: JSON.stringify({
-        name: className?.current?.value,
+        className: className?.current?.value,
         teacher: classTeacher?.current?.value,
         classInfo: classInfo?.current?.value,
         classRoom: classRoom?.current?.value,

@@ -10,12 +10,12 @@ export async function POST(req: Request) {
     session?.user?.email === "pineappletwo@gmail.com"
   ) {
     await connectToDataBase();
-    const classExists = await QuizGeniusClass.findOne({ name: data.name });
+    const classExists = await QuizGeniusClass.findOne({ name: data.className });
     if (classExists) {
       return Response.json({ message: "Class already exists." });
     }
     const newClass = new QuizGeniusClass({
-      name: data.name,
+      name: data.className,
       teacher: data.teacher,
       classInfo: data.classInfo,
       classRoom: data.classRoom,

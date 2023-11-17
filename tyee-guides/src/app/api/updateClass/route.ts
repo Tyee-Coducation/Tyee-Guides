@@ -10,13 +10,17 @@ export async function POST(req: Request) {
     session?.user?.email === "pineappletwo@gmail.com"
   ) {
     await connectToDataBase();
-    let classExists = await QuizGeniusClass.findOne({ name: data.name });
+    let classExists = await QuizGeniusClass.findOne({ name: data.className });
     if (classExists) {
       try {
-        classExists.teacher = data.teacher;
-        classExists.classInfo = data.classInfo;
-        classExists.classRoom = data.classRoom;
-        classExists.name = data.name;
+        classExists.teacher =
+          data.teacher !== "same" ? data.teacher : classExists.teacher;
+        classExists.classInfo =
+          data.classInfo !== "same" ? data.classInfo : classExists.classInfo;
+        classExists.classRoom =
+          data.classRoom !== "same" ? data.classRoom : classExists.classRoom;
+        classExists.name =
+          data.className !== "same" ? data.className : classExists.name;
         await classExists.save();
         return Response.json({ message: "Class updated." });
       } catch (err) {
