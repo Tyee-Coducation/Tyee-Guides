@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import LoginButton from "@components/LoginButton";
 import styles from "@styles/Class.module.css";
 
-export default async function ({ params }) {
+export default async function ClassComponent({ params }) {
   const session = await getServerSession();
   let { name } = params;
   name = name.split("%20").join(" ");
@@ -63,7 +63,7 @@ export default async function ({ params }) {
               <RateClass name={classData.name} />
             ) : (
               <>
-                <h1>You've already voted for this class</h1>
+                <h1>You&apos;ve already voted for this class</h1>
               </>
             )}
           </>
