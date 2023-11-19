@@ -63,7 +63,7 @@ export default async function ClassComponent({ params }) {
               <RateClass name={classData.name} />
             ) : (
               <>
-                <h1>You&apos;ve already voted for this class</h1>
+                <h1>You have already voted for this class</h1>
               </>
             )}
           </>
