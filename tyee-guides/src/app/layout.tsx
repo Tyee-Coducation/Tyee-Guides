@@ -11,8 +11,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Tyee Guides",
   description: "Students helping students around Tyee Middle School",
+  icons: {
+    icon: "../public/logo.png",
+  },
 };
-
 
 export default async function RootLayout({
   children,
