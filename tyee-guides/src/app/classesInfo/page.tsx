@@ -1,15 +1,17 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classesData from "./classes.json";
 import { FaTimes } from "react-icons/fa";
 import { connectToDataBase } from "@lib/db";
 import TyeeGuidesClass from "@models/class";
+import { set } from "mongoose";
 
 const ClassList: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
   const [data, setData] = useState<any>([]);
+  const search = useRef(null);
   const handleClick = (classData: any) => {
     setSelectedClass(classData);
   };
@@ -57,6 +59,16 @@ const ClassList: React.FC = () => {
           non-selectable classes
         </p>
       </div>
+      <input
+        ref={search}
+        className="mt-4 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        placeholder="Search for a class"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            setQuery(search?.current?.value);
+          }
+        }}
+      />
       <div className="flex flex-wrap justify-start">
         {!loading ? (
           data.classes.map((classData: any, index: number) => (
@@ -71,9 +83,7 @@ const ClassList: React.FC = () => {
               onClick={() => handleClick(classData)}
             >
               <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  {classData.name} 
-                </h3>
+                <h3 className="text-xl font-semibold mb-2">{classData.name}</h3>
               </div>
             </div>
           ))
