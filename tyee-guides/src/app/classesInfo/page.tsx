@@ -5,6 +5,7 @@ import { FaTimes } from "react-icons/fa";
 import { connectToDataBase } from "@lib/db";
 import TyeeGuidesClass from "@models/class";
 import { set } from "mongoose";
+import Link from "next/link";
 
 const ClassList: React.FC = () => {
   const [selectedClass, setSelectedClass] = useState<any>(null);
@@ -74,11 +75,7 @@ const ClassList: React.FC = () => {
           data.classes.map((classData: any, index: number) => (
             <div
               key={index}
-              className={`group rounded-lg p-4 m-4 bg-white shadow-md flex items-center transition-transform transform-gpu hover:scale-105 ${
-                classData.recommended
-                  ? "border border-green-500"
-                  : "border border-red-500"
-              }`}
+              className={`group rounded-lg p-4 m-4 bg-white shadow-md flex items-center transition-transform transform-gpu hover:scale-105 cursor-pointer border-2 border-transparent hover:border-blue-500`}
               style={{ width: "300px" }}
               onClick={() => handleClick(classData)}
             >
@@ -94,27 +91,25 @@ const ClassList: React.FC = () => {
 
       {selectedClass && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
-          <div className="bg-white rounded-lg p-8 max-w-md relative">
+          <div
+            className="bg-white rounded-lg p-8 max-w-md relative"
+            style={{ minWidth: "16rem" }}
+          >
             <h2 className="text-2xl font-bold mb-4 flex items-center justify-between">
               {selectedClass.className} Details
               <button className="absolute top-2 right-2" onClick={closeModal}>
                 <FaTimes />
               </button>
             </h2>
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Pros:</h4>
-              <ul>
-                {selectedClass.pros.map((pro: string, index: number) => (
-                  <li key={index}>- {pro}</li>
-                ))}
-              </ul>
-              <h4 className="text-lg font-semibold mt-4 mb-2">Cons:</h4>
-              <ul>
-                {selectedClass.cons.map((con: string, index: number) => (
-                  <li key={index}>- {con}</li>
-                ))}
-              </ul>
-            </div>
+            <p className="mb-4">{selectedClass.classInfo}</p>
+            <p className="mb-2">{selectedClass.classRoom}</p>
+            <p className="mb-6">{selectedClass.teacher}</p>
+            <Link
+              href={`/class/${selectedClass.name}`}
+              className="button-primary"
+            >
+              More
+            </Link>
           </div>
         </div>
       )}
