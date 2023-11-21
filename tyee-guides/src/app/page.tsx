@@ -51,7 +51,7 @@ export default function Home() {
                 up.
               </p>
             </div>
-            <div className="col ">
+            <div className="col">
               <h1 className="text-2xl">FAQ about Tyee</h1>
               <p className="mt-4 text-md">
                 Tyee Guides has a list of frequently asked questions about Tyee.

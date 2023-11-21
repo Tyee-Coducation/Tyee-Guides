@@ -5,7 +5,7 @@ import React from 'react';
 const TOSPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-      <div className="max-w-2xl p-6 bg-white rounded-lg shadow-lg">
+      <div className="max-w-4xl p-6 bg-white rounded-lg shadow-lg my-8">
         <h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
         <p className="text-gray-700 mb-4">
           Welcome to Tyee Guides website. Please read these terms carefully before using our services.

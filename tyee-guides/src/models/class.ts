@@ -27,6 +27,10 @@ const ClassSchema = new Schema({
     type: Array,
     default: [],
   },
+  subjects: {
+    type: Array,
+    required: true,
+  },
 });
 
 const TyeeGuidesClass = models.Class || model("Class", ClassSchema);
