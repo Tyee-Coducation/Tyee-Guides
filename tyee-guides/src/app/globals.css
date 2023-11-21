@@ -171,14 +171,13 @@ main {
   flex-wrap: wrap;
   gap: clamp(1rem, 2vw, 5rem);
   margin-top: clamp(1rem, 2vh, 3rem);
-  padding: clamp(1rem, 2vw, 3rem);
+  padding: clamp(1rem, 2vw, 3rem) 0;
 }
 
 .col {
   flex: 1 1 250px;
   padding: clamp(1rem, 2vw, 3rem);
   border-radius: 1rem;
-  box-shadow: 0 0 5px 3px var(--secondary);
 }
 
 .nav {
@@ -219,7 +218,6 @@ main {
   top: calc(100% + 0.5rem);
   left: 0;
   background: var(--background);
-  box-shadow: 0 0 5px 3px var(--secondary);
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.5rem;
