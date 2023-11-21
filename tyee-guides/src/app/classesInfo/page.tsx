@@ -20,6 +20,7 @@ const ClassList: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const response = await fetch("/api/getClasses", {
         method: "POST",
         headers: {
